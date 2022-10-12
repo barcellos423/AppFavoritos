@@ -27,7 +27,7 @@
     <TITLE>Meus-Favoritos</TITLE>
   </head>
 <body>
-    <H1>Bom Dia!!!</H1>
+    <H1>Bom Dia!!!<small>(click para ligar/parar a música)</small></H1>
     <H2><small>Notícias</small></H2>  
     <a href="https://br.financas.yahoo.com/">Yahoo Finanças</a><br>
     <a href="https://www.msn.com/pt-br">MSN</a><br>
@@ -62,5 +62,30 @@
     <H2><small>Compromissos</small></H2>  
 
     <H2><small>Validar Links</small></H2>  
+
+    <audio id="musica" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="auto"> 
+      <style>
+           #musica { display: none }
+      </style>
+      
+      <script>
+        let html = document.querySelector("html");
+        html.addEventListener('click', () => {
+            togglePlay();
+        })
+        var myAudio = document.querySelector("#musica");
+        var isPlaying = false;
+        function togglePlay() {
+          isPlaying ? myAudio.pause() : myAudio.play();
+        };
+        myAudio.onplaying = function() {
+          isPlaying = true;
+        };
+        myAudio.onpause = function() {
+          isPlaying = false;
+        };
+    </script>
+
+
     </body>
 </html>
